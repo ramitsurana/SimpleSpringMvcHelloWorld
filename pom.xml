@@ -12,6 +12,17 @@
 		<spring.version>3.2.3.RELEASE</spring.version>
 	</properties>
 
+        <distributionManagement>
+		<snapshotRepository>
+			<id>poc-snapshots</id>
+			<url>http://localhost:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>poc-releases</id>
+			<url>http://localhost:8081/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
