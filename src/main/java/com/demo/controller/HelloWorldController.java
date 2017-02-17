@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HelloWorldController {
-	String message = "Hello World! - This is a new version of code";
+	String message = "Hello World! - This is a new version of code, ";
 
 	@RequestMapping("/hello")
 	public ModelAndView showMessage(
