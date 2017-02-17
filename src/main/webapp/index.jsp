@@ -8,9 +8,9 @@
 <body>
  
 	<center>
-		<h2>Hello World -- This is a new version of webapp</h2>
+		<h2>Hello World -- This is a newer version of webapp</h2>
 		<h3>
-			<a href="hello?name=Abir">Click Here</a>
+			<a href="hello?name=User">Click Here</a>
 		</h3>
 	</center>
 </body>
