@@ -1,0 +1,19 @@
+{
+  "family": "simple-web-app-task",
+  "containerDefinitions": [
+    {
+      "memory": 500,
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 8888,
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "name": "simple-web-app-container",
+      "image": "abirdatta/poc:v%BUILD_NUMBER%",
+      "cpu": 1
+    }
+  ]
+}
