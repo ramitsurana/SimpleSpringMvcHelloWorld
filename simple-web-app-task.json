@@ -11,7 +11,7 @@
           "protocol": "tcp"
         }
       ],
-      "name": "sample-webapp",
+      "name": "simple-webapp",
       "image": "abirdatta/poc:v%BUILD_NUMBER%",
       "cpu": 1
     }

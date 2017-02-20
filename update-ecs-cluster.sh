@@ -1,5 +1,5 @@
 #!/bin/bash
-SERVICE_NAME="sample-webapp"
+SERVICE_NAME="simple-webapp"
 #BUILD_NUMBER=37
 IMAGE_VERSION="v_"${BUILD_NUMBER}
 TASK_FAMILY="simple-web-app-task"
