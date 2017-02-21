@@ -1,8 +1,8 @@
 #!/bin/bash
-SERVICE_NAME="simple-webapp"
+SERVICE_NAME="simple-webapp-service"
 #BUILD_NUMBER=37
 IMAGE_VERSION="v_"${BUILD_NUMBER}
-TASK_FAMILY="simple-web-app-task"
+TASK_FAMILY="task-to-run-webapp-in-docker-container"
 
 # Create a new task definition for this build
 sed -e "s;%BUILD_NUMBER%;${BUILD_NUMBER};g" ${TASK_FAMILY}.json > ${TASK_FAMILY}-v_${BUILD_NUMBER}.json
