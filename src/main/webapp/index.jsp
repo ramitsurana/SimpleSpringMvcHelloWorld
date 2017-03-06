@@ -8,7 +8,7 @@
 <body>
  
 	<center>
-		<h2>This is a newer version of webapp - Monday</h2>
+		<h2>This is a newer version of webapp - Monday - using AWS Lambda</h2>
 		<h3>
 			<a href="hello?name=User">Click Here</a>
 		</h3>
