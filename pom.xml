@@ -12,7 +12,7 @@
 		<spring.version>3.2.3.RELEASE</spring.version>
 	</properties>
 
-        <distributionManagement>
+	<distributionManagement>
 		<snapshotRepository>
 			<id>poc-snapshots</id>
 			<url>http://localhost:8081/repository/maven-snapshots/</url>
@@ -51,5 +51,24 @@
 	</dependencies>
 	<build>
 		<finalName>simplewebapp</finalName>
+		<plugins>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.13</version>
+				<configuration>
+					<imageName>abirdatta/poc:v${BUILD_NUMBER}</imageName>
+					<dockerDirectory>${project.basedir}</dockerDirectory>
+                                        <useConfigFile>true</useConfigFile>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.war</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
