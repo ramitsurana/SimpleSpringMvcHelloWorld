@@ -1,0 +1,21 @@
+version: 0.1
+
+environment_variables:
+  plaintext:
+    AWS_DEFAULT_REGION: "us-east-1"
+    SNS_TOPIC_ARN: "arn:aws:sns:us-east-1:649407818518:code-build-message"
+    
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean install
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - sed -e "s/\${BUILD_NUMBER}/$CODEBUILD_BUILD_ID/g" create-payload.json > payload.json
+      - messageText="$(cat payload.json)"
+      - aws sns publish --topic-arn $SNS_TOPIC_ARN --subject 'AWS CodeBuild - Build Completed' --message-structure json --message "${messageText}"
+artifacts:
+  files:
+    - payload.json 
