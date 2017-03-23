@@ -9,9 +9,10 @@ phases:
   build:
     commands:
       - echo Start build and push of DockerImage
+      - echo Code build-id $CODEBUILD_BUILD_ID
       - build_id=$CODEBUILD_BUILD_ID;image_version=${build_id#*:}
-      - echo Image version should be $image_version
-      - docker build -t abirdatta/poc:v$image_version .
+      - echo Image version should be ${image_version}
+      - docker build -t abirdatta/poc:v${image_version} .
       - docker login --username=abirdatta --email="abirdatta.in@gmail.com" --password="dockerhub123"
       - docker push abirdatta/poc
       - echo Docker build and push done
