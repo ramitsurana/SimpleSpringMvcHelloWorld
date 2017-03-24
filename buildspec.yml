@@ -14,7 +14,9 @@ phases:
       - docker login --username=abirdatta --email="abirdatta.in@gmail.com" --password="dockerhub123"
       - docker push abirdatta/poc
       - echo Docker build and push done
-      - sed -e "s/\${BUILD_NUMBER}/99/g" create-payload.json > payload.json
+      - d=$CODEBUILD_BUILD_ID; echo Variable d id $d
+      - echo Variable I is $i
+      - sed -e "s/\${BUILD_NUMBER}/$i/g" create-payload.json > payload.json
   post_build:
     commands:
       - echo Nothing to do in post build
