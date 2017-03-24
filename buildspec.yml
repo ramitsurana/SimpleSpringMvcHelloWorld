@@ -3,7 +3,7 @@ version: 0.1
 environment_variables:
   plaintext:
     AWS_DEFAULT_REGION: "us-east-1"
-    SNS_TOPIC_ARN: "arn:aws:sns:us-east-1:649407818518:sns-for-lambda"
+    SNS_TOPIC_ARN: "arn:aws:sns:us-east-1:649407818518:code-build-message"
     
 phases:
   build:
