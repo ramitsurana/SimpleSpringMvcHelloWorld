@@ -3,7 +3,7 @@ version: 0.1
 environment_variables:
   plaintext:
     AWS_DEFAULT_REGION: "us-east-1"
-    SNS_TOPIC_ARN: "arn:aws:sns:us-east-1:649407818518:code-build-message"
+    SNS_TOPIC_ARN: "arn:aws:sns:us-east-1:649407818518:sns-for-lambda"
     
 phases:
   build:
@@ -16,7 +16,8 @@ phases:
       - echo Docker build and push done
       - d=$CODEBUILD_BUILD_ID; echo Variable d id $d
       - echo Variable I is $i
-      - i=$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}');sed -e "s/\${BUILD_NUMBER}/$i/g" create-payload.json > payload.json
+      - i=$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}');sed -e "s/\${BUILD_NUMBER}/$i/g" update-payload.json > payload.json
+      - messageText="$(cat payload.json)";aws sns publish --topic-arn $SNS_TOPIC_ARN --subject 'AWS CodeBuild - Build Completed' --message "${messageText}"
   post_build:
     commands:
       - echo Nothing to do in post build
